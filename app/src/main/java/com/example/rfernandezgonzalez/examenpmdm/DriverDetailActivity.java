@@ -85,6 +85,6 @@ public class DriverDetailActivity extends AppCompatActivity {
     @Override
     public void cerrar(){
         setResult(101);
-
+        finish();
     }
 }
