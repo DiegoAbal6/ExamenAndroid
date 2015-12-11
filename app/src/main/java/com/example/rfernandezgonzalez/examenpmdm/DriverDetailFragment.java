@@ -1,6 +1,7 @@
 package com.example.rfernandezgonzalez.examenpmdm;
 
 import android.app.Activity;
+import android.content.Context;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -66,7 +67,26 @@ public class DriverDetailFragment extends Fragment {
         }
         //Hacemos que el fragment escuche al boton a través del Listener, cuando hagamos click
         Button button = (Button) rootView.findViewById(R.id.button);
-        button.setOnClickListener(this);
+        button.setOnClickListener((View.OnClickListener) this);
         return rootView;
     }
+
+        //Click del button
+
+    @Override
+    public void OnClick (View v){mListener.cerrar();}
+    //Fragment cerrado
+    private MyFragmentListener{
+        public void cerrar();
+
+    }
+}
+
+    //Será ejecutado cuando el fragment sea unido a una activity
+@Override
+public void onAttach(Context context){
+
+    super.onAttach(context);
+    mListener = (MyFragmentListener) context;
+
 }
