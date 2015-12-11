@@ -1,5 +1,25 @@
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:id="@+id/driver_detail"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     style="?android:attr/textAppearanceLarge" android:layout_width="match_parent"
     android:layout_height="match_parent" android:padding="16dp" android:textIsSelectable="true"
-    tools:context=".DriverDetailFragment" />
+    tools:context=".DriverDetailFragment">
+
+    <!--Fragment driver detail, con un botón (en vez de lo que viene por defecto) -->
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cerrar"
+        android:id="@+id/button"
+        android:layout_gravity="center" />
+
+    <!--Añado el textview -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/textView"
+        android:layout_gravity="center_horizontal|top" />
+</FrameLayout>
+
+
