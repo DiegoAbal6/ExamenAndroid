@@ -51,7 +51,7 @@ public class DriverListActivity extends AppCompatActivity
                         .setAction("Action", null).show();
             }
         });
-
+        // Si tenemos un panel a la derecha (land), pondria boolean a true y cargo el fragment de la izquierda, es decir, master
         if (findViewById(R.id.driver_detail_container) != null) {
             // The detail container view will be present only in the
             // large-screen layouts (res/values-large and
@@ -79,6 +79,8 @@ public class DriverListActivity extends AppCompatActivity
             // In two-pane mode, show the detail view in this activity by
             // adding or replacing the detail fragment using a
             // fragment transaction.
+
+           //Al hacer click en el elemento de la lista, reemplazo el fragment de la derecha por lo nuevo
             Bundle arguments = new Bundle();
             arguments.putString(DriverDetailFragment.ARG_ITEM_ID, id);
             DriverDetailFragment fragment = new DriverDetailFragment();
@@ -90,6 +92,8 @@ public class DriverListActivity extends AppCompatActivity
         } else {
             // In single-pane mode, simply start the detail activity
             // for the selected item ID.
+
+            
             Intent detailIntent = new Intent(this, DriverDetailActivity.class);
             detailIntent.putExtra(DriverDetailFragment.ARG_ITEM_ID, id);
             startActivity(detailIntent);
