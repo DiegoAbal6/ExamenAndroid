@@ -19,11 +19,15 @@ import android.view.MenuItem;
  * more than a {@link DriverDetailFragment}.
  */
 public class DriverDetailActivity extends AppCompatActivity {
+//Declaro variable que controla si esta mostrando uno o dos paneles
+    private boolean mTwoPane=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_driver_detail);
+
+        //Decimos el layout que queremos que cargue la Activity
         Toolbar toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
         setSupportActionBar(toolbar);
 
