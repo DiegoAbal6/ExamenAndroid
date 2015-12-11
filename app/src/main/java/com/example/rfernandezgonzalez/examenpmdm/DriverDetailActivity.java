@@ -81,4 +81,10 @@ public class DriverDetailActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+    //Llamo al metodo FINISH, borra la land y la actividad se destruye
+    @Override
+    public void cerrar(){
+        setResult(101);
+
+    }
 }
