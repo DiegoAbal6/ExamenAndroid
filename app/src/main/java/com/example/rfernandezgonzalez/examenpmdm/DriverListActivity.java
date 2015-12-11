@@ -93,10 +93,10 @@ public class DriverListActivity extends AppCompatActivity
             // In single-pane mode, simply start the detail activity
             // for the selected item ID.
 
-            
+            //Si no hay fragment de la derecha, al hacer click, llamo a la otra activity
             Intent detailIntent = new Intent(this, DriverDetailActivity.class);
             detailIntent.putExtra(DriverDetailFragment.ARG_ITEM_ID, id);
-            startActivity(detailIntent);
+            startActivityForResult(detailIntent,100);
         }
     }
 }
