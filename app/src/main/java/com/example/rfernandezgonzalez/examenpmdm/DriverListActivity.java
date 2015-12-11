@@ -1,5 +1,6 @@
 package com.example.rfernandezgonzalez.examenpmdm;
 
+import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -25,6 +26,8 @@ import android.view.View;
  * {@link DriverListFragment.Callbacks} interface
  * to listen for item selections.
  */
+
+//Implemento una interfaz definida en el fragment
 public class DriverListActivity extends AppCompatActivity
         implements DriverListFragment.Callbacks {
 
@@ -96,7 +99,22 @@ public class DriverListActivity extends AppCompatActivity
             //Si no hay fragment de la derecha, al hacer click, llamo a la otra activity
             Intent detailIntent = new Intent(this, DriverDetailActivity.class);
             detailIntent.putExtra(DriverDetailFragment.ARG_ITEM_ID, id);
-            startActivityForResult(detailIntent,100);
+            startActivityForResult(detailIntent, 100);
         }
     }
+
+    @Override
+
+    //Recojo el fragment del detail y borro con remove(fragment)
+
+    public void cerrar(){
+
+        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.driver_detail_container);
+        getSupportFragmentManager().beginTransaction().remove(fragment).commit();
+
+
+    }
+
+    
+
 }
