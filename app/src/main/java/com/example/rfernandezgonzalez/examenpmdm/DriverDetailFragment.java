@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.rfernandezgonzalez.examenpmdm.dummy.DummyContent;
@@ -63,7 +64,9 @@ public class DriverDetailFragment extends Fragment {
         if (mItem != null) {
             ((TextView) rootView.findViewById(R.id.textView)).setText("Item" + mItem.id);
         }
-        
+        //Hacemos que el fragment escuche al boton a través del Listener, cuando hagamos click
+        Button button = (Button) rootView.findViewById(R.id.button);
+        button.setOnClickListener(this);
         return rootView;
     }
 }
