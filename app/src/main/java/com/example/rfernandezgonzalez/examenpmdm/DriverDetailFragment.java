@@ -65,28 +65,38 @@ public class DriverDetailFragment extends Fragment {
         if (mItem != null) {
             ((TextView) rootView.findViewById(R.id.textView)).setText("Item" + mItem.id);
         }
-        //Hacemos que el fragment escuche al boton a través del Listener, cuando hagamos click
+        //Creo el boton y hago que el fragment escuche al boton a través del Listener, cuando hagamos click
         Button button = (Button) rootView.findViewById(R.id.button);
         button.setOnClickListener((View.OnClickListener) this);
         return rootView;
     }
 
-        //Click del button
+    public void onClick(View v) {
+        if (fragment == null || isInLayout()) {
+            //Si no esta el primer fragment, estara en Portrait, es decir, va a cerrar el fragment2
+            +getActivity().setResult(getActivity().RESULT_OK);//Este get activity nos devolverá si el resultado es satisfactorio o OK
+            getActivity().finish();
+        } else {
 
-    @Override
-    public void OnClick (View v){mListener.cerrar();}
-    //Fragment cerrado
-    private MyFragmentListener{
-        public void cerrar();
+            //Click del button
 
+            @Override
+            public void OnClick (View v){
+                mListener.cerrar();
+            }
+            //Fragment cerrado
+            private MyFragmentListener {
+                public void cerrar ();
+
+            }
+        }
+
+        //Será ejecutado cuando el fragment sea unido a una activity
+        @Override
+        public void onAttach (Context context){
+
+            super.onAttach(context);
+            mListener = (MyFragmentListener) context;
+
+        }
     }
-}
-
-    //Será ejecutado cuando el fragment sea unido a una activity
-@Override
-public void onAttach(Context context){
-
-    super.onAttach(context);
-    mListener = (MyFragmentListener) context;
-
-}

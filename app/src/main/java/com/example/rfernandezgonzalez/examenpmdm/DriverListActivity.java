@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.View;
+import android.widget.Toast;
 
 
 /**
@@ -100,6 +101,10 @@ public class DriverListActivity extends AppCompatActivity
             Intent detailIntent = new Intent(this, DriverDetailActivity.class);
             detailIntent.putExtra(DriverDetailFragment.ARG_ITEM_ID, id);
             startActivityForResult(detailIntent, 100);
+
+
+
+
         }
     }
 
@@ -116,7 +121,13 @@ public class DriverListActivity extends AppCompatActivity
     }
 @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
+
+    //Creo la Toast, si el resultCode es == RESULT_OK ... saltará un mensaje de OK mediante la toast
+    if (resultCode == RESULT_OK) {
+
+                     Toast.makeText(DriverListActivity.this, "OK", Toast.LENGTH_SHORT).show();
     super.onActivityResult(requestCode, resultCode,data);
+
         switch (requestCode){
 
             case 100:
@@ -127,4 +138,4 @@ public class DriverListActivity extends AppCompatActivity
 
 
 
-}
+
